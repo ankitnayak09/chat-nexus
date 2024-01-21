@@ -19,24 +19,19 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<ClerkProvider>
-			<html lang="en" suppressHydrationWarning>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="dark"
-					enableSystem={false}
-					storageKey="chat-nexus-theme"
-				>
-					<body
-						className={cn(
-							font.className,
-							"bg-white dark:bg-[#313338]"
-						)}
+		<html lang="en" suppressHydrationWarning>
+			<body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
+				<ClerkProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="dark"
+						enableSystem={false}
+						storageKey="chat-nexus-theme"
 					>
 						{children}
-					</body>
-				</ThemeProvider>
-			</html>
-		</ClerkProvider>
+					</ThemeProvider>
+				</ClerkProvider>
+			</body>
+		</html>
 	);
 }
